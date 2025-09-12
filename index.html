@@ -198,6 +198,89 @@ tailwind.config = {
       sidebar.style.backgroundPosition = '50% 50%';
     }
   </script>
+  <script>
+/* ====== Split a letras, animación letter-by-letter y reacción al cursor ====== */
+(function(){
+  const el = document.getElementById('megaTitle');
+  if (!el) return;
+
+  // 1) Separar en <span class="char"> por cada carácter (respeta espacios)
+  const text = el.textContent;
+  el.textContent = '';
+  const frag = document.createDocumentFragment();
+  [...text].forEach((ch, i) => {
+    const span = document.createElement('span');
+    span.className = 'char';
+    span.textContent = ch;
+    frag.appendChild(span);
+  });
+  el.appendChild(frag);
+
+  const chars = [...el.querySelectorAll('.char')];
+
+  // 2) Animación letter-by-letter (stagger)
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const baseDelay = 40; // ms entre letras
+  if (!reduce) {
+    chars.forEach((c, i) => {
+      setTimeout(() => c.classList.add('show'), i * baseDelay);
+    });
+  } else {
+    chars.forEach(c => c.classList.add('show'));
+  }
+
+  // 3) Interactividad con el mouse:
+  //    Cada letra rota y se desplaza ligeramente según la distancia al cursor
+  let mouseX = innerWidth/2, mouseY = innerHeight/2, ticking = false;
+
+  function applyMouseEffect(){
+    const rectTitle = el.getBoundingClientRect();
+    const centerY = rectTitle.top + rectTitle.height/2;
+
+    chars.forEach((c) => {
+      const r = c.getBoundingClientRect();
+      const cx = r.left + r.width/2;
+      const cy = r.top + r.height/2;
+
+      // Distancia del cursor a cada letra
+      const dx = mouseX - cx;
+      const dy = mouseY - cy;
+
+      // Mapea a rotación/traslación suaves (ajusta factores si quieres más drama)
+      const dist = Math.hypot(dx, dy);
+      const maxTilt = 10;      // grados máx
+      const maxLift = 10;      // px máx
+      const influence = Math.max(0, 1 - dist / 600); // radio de influencia
+
+      const tilt = maxTilt * influence * (dx > 0 ? 1 : -1); // rota según lado
+      const lift = -maxLift * influence;                    // levanta un poco
+      const sway = 6 * influence * Math.sign(dx);           // desliza lateral
+
+      // además, inclina levemente respecto al centro vertical del título
+      const tiltY = ( (cy - centerY) / rectTitle.height ) * maxTilt * .6;
+
+      c.style.transform = `translate(${sway.toFixed(1)}px, ${lift.toFixed(1)}px) rotate(${(tilt+tiltY).toFixed(2)}deg)`;
+    });
+  }
+
+  function onMove(e){
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    if (!ticking){
+      requestAnimationFrame(() => { applyMouseEffect(); ticking = false; });
+      ticking = true;
+    }
+  }
+  window.addEventListener('mousemove', onMove, { passive:true });
+
+  // 4) Recalcular al hacer resize (importante en móvil/desktop)
+  window.addEventListener('resize', () => { applyMouseEffect(); });
+
+  // 5) Por si el título entra tarde al viewport, aplica una primera pasada
+  applyMouseEffect();
+})();
+</script>
+
 </body>
 </html>
 
