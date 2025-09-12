@@ -95,12 +95,16 @@ tailwind.config = {
     </div>
   </div>
 
-  <!-- Header / logo -->
-  <header class="text-center py-6 pl-[22px]">
-    <h1 id="title" class="font-display font-normal text-lg">
-      La vida de un <span class="italic">creativo.</span>
-    </h1>
-  </header>
+ <!-- ====== Header / logo con título gigante ====== -->
+<header class="text-center py-10 pl-[22px]">
+  <div class="text-xl md:text-2xl font-display leading-none mb-3">La vida de un</div>
+
+  <!-- El título se autosepara en letras con JS -->
+  <h1 id="megaTitle"
+      class="font-display leading-[0.85] tracking-[-0.02em] title-giant">
+    creativo.
+  </h1>
+</header>
 
   <!-- Intro negra -->
   <section class="bg-black text-white px-6 py-12 md:py-20 pl-[22px] will-reveal">
