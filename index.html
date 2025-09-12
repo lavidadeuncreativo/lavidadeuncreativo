@@ -6,28 +6,26 @@
   <title>La vida de un creativo</title>
 
   <!-- Favicons -->
-<link rel="icon" href="./assets/icons/favicon.svg?v=2" type="image/svg+xml">
-<link rel="icon" href="./assets/icons/favicon-32x32.png?v=2" sizes="32x32" type="image/png">
-<link rel="icon" href="./assets/icons/favicon-16x16.png?v=2" sizes="16x16" type="image/png">
-<link rel="apple-touch-icon" href="./assets/icons/apple-touch-icon.png?v=2" sizes="180x180">
-<link rel="icon" href="./favicon.ico?v=2">
-
+  <link rel="icon" href="./assets/icons/favicon.svg?v=2" type="image/svg+xml">
+  <link rel="icon" href="./assets/icons/favicon-32x32.png?v=2" sizes="32x32" type="image/png">
+  <link rel="icon" href="./assets/icons/favicon-16x16.png?v=2" sizes="16x16" type="image/png">
+  <link rel="apple-touch-icon" href="./assets/icons/apple-touch-icon.png?v=2" sizes="180x180">
+  <link rel="icon" href="./favicon.ico?v=2">
 
   <!-- Tailwind utilidades -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
-tailwind.config = {
-  theme: {
-    extend: {
-      fontFamily: {
-        display: ['"ZTBros"', 'serif'],  // tu fuente
-        sans: ['Inter', 'system-ui', 'sans-serif']
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: {
+          display: ['"ZTBros"', 'serif'],
+          sans: ['Inter', 'system-ui', 'sans-serif']
+        }
       }
     }
   }
-}
-</script>
-
+  </script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
 
   <style>
@@ -36,20 +34,19 @@ tailwind.config = {
 
     /* ====== SIDEBAR GRADIENT ====== */
     .sidebar {
-      position: fixed; inset: 0 auto 0 0; width: 18px; z-index: 50;
-      /* Gradiente base */
+      position: fixed; inset: 0 auto 0 0; width: 12px; /* móvil */
+      z-index: 50;
       background: linear-gradient(180deg,
         rgba(190,0,0,0.95) 0%,
         rgba(120,0,0,0.85) 30%,
         rgba(40,0,0,0.85) 60%,
         rgba(0,0,0,0.95) 100%);
-      /* Para que “respire” */
       background-size: 100% 200%;
       background-position: 50% 0%;
       box-shadow: 2px 0 0 rgba(0,0,0,.15);
       pointer-events: none;
     }
-    /* brillo sutil que se desplaza */
+    @media (min-width: 640px){ .sidebar{ width:18px; } }
     .sidebar::after{
       content:""; position:absolute; inset:0;
       background: radial-gradient(120px 40% at 50% var(--glowY, 20%),
@@ -75,51 +72,34 @@ tailwind.config = {
     .btn:hover { transform: translateY(-1px); filter: brightness(1.05); }
     .btn:active { transform: translateY(0); filter: brightness(.98); }
 
+    /* ====== Título gigante + letras ====== */
+    .title-giant{
+      font-size: clamp(72px, 16vw, 320px);
+      line-height: .8;
+      display: inline-block;
+      white-space: nowrap;
+    }
+    .title-giant .char{
+      display:inline-block; opacity:0;
+      transform: translateY(12px) rotate(0deg);
+      transition: transform .5s var(--easing), opacity .5s var(--easing);
+      will-change: transform, opacity;
+    }
+    .title-giant .char.show{ opacity:1; transform: translateY(0) rotate(0deg); }
+    .title-giant .char:hover{ transform: translateY(-2px) rotate(-2deg) scale(1.02); }
+
+    /* Subtítulo pequeño (se reposiciona en desktop) */
+    .subtitle-small{ font-family:'ZTBros', serif; font-size: clamp(14px,2.5vw,28px); line-height:1; }
+
     /* Reduce motion */
     @media (prefers-reduced-motion: reduce) {
       .marquee-track, .parallax { animation: none !important; transition: none !important; }
       .will-reveal, .intro-pop { opacity: 1 !important; transform: none !important; }
+      .title-giant .char{ opacity:1 !important; transform:none !important; transition:none !important; }
       .sidebar { background-position: 50% 50% !important; }
       .sidebar::after { display:none; }
     }
   </style>
-  <style>
-  /* Tamaño fluido ENORME para el título */
-  .title-giant{
-    /* clamp(min, vw-based, max) -> ajusta max si lo quieres aún más grande */
-    font-size: clamp(64px, 20vw, 320px);
-    line-height: .85;
-    display: inline-block;
-    position: relative;
-    white-space: nowrap;
-  }
-
-  /* Cada letra */
-  .title-giant .char{
-    display: inline-block;
-    opacity: 0;
-    transform: translateY(12px) rotate(0deg);
-    transition: transform .5s cubic-bezier(.22,1,.36,1), opacity .5s cubic-bezier(.22,1,.36,1);
-    will-change: transform, opacity;
-  }
-
-  /* Estado visible (lo aplica JS con stagger) */
-  .title-giant .char.show{
-    opacity: 1;
-    transform: translateY(0) rotate(0deg);
-  }
-
-  /* Hover suave de cada letra (opcional) */
-  .title-giant .char:hover{
-    transform: translateY(-2px) rotate(-2deg) scale(1.02);
-  }
-
-  /* Reduce motion: muestra todo sin animar */
-  @media (prefers-reduced-motion: reduce){
-    .title-giant .char{ opacity:1; transform:none !important; transition:none !important; }
-  }
-</style>
-
 </head>
 <body class="bg-white text-black">
 
@@ -127,33 +107,36 @@ tailwind.config = {
   <div class="sidebar" id="sidebar"></div>
 
   <!-- Marquee superior -->
-  <div class="bg-red-700 text-white text-sm py-1 pl-[22px]">
+  <div class="bg-black text-white text-sm py-1 pl-[14px] sm:pl-[22px]">
     <div class="marquee">
       <div class="marquee-track">
-        <span class="px-6">Nuevo artículo disponible</span>
+        <span class="px-6 italic">Nuevo artículo disponible</span>
         <span class="px-6">★★★ Expediente 001 ★★★</span>
-        <span class="px-6">Suscríbete al Newsletter</span>
-        <span class="px-6">Nuevo artículo disponible</span>
+        <span class="px-6 italic">Suscríbete al Newsletter</span>
+        <span class="px-6 italic">Nuevo artículo disponible</span>
         <span class="px-6">★★★ Expediente 001 ★★★</span>
-        <span class="px-6">Suscríbete al Newsletter</span>
+        <span class="px-6 italic">Suscríbete al Newsletter</span>
       </div>
     </div>
   </div>
 
- <!-- ====== Header / logo con título gigante ====== -->
-<header class="text-center py-10 pl-[22px]">
-  <div class="text-xl md:text-2xl font-display leading-none mb-3">La vida de un</div>
+  <!-- Header: subtítulo + título -->
+  <header class="flex justify-center py-8 sm:py-12">
+    <div class="relative inline-block px-4">
+      <!-- En móvil: bloque normal encima; en md+: absoluto sobre el título -->
+      <span class="subtitle-small block mb-2 md:mb-0 md:absolute md:-top-8 md:left-2">
+        La vida de un
+      </span>
 
-  <!-- El título se autosepara en letras con JS -->
-  <h1 id="megaTitle"
-      class="font-display leading-[0.85] tracking-[-0.02em] title-giant">
-    creativo.
-  </h1>
-</header>
+      <h1 id="megaTitle" class="font-display leading-[0.85] tracking-[-0.02em] title-giant">
+        creativo.
+      </h1>
+    </div>
+  </header>
 
   <!-- Intro negra -->
-  <section class="bg-black text-white px-6 py-12 md:py-20 pl-[22px] will-reveal">
-    <div class="max-w-3xl mx-auto space-y-4 text-xl md:text-2xl leading-snug">
+  <section class="bg-black text-white px-4 sm:px-6 py-10 sm:py-16 will-reveal">
+    <div class="max-w-3xl mx-auto space-y-4 text-lg sm:text-xl md:text-2xl leading-snug">
       <p class="uppercase tracking-wide text-xs">para el lector</p>
       <p>® hola, soy isra.<br>bienvenid@ a mi pedazo de mundo virtual.<br>
       aquí pienso en voz alta, cuestiono cosas que la mayoría de las personas ni siquiera se pregunta…</p>
@@ -162,39 +145,45 @@ tailwind.config = {
   </section>
 
   <!-- Imagen con texto encima (parallax) -->
-  <section class="relative pl-[22px] will-reveal">
-    <img id="heroImg" src="./assets/cover-1.png" alt="Qué te interesa ver hoy"
-         class="w-full object-cover parallax" style="aspect-ratio: 16/9;">
-    <div class="absolute inset-0 left-[22px] flex flex-col justify-center items-center text-center px-6">
-      <h2 class="text-white text-2xl md:text-3xl font-bold drop-shadow">¿qué te interesa ver hoy?</h2>
-      <p class="text-white text-sm max-w-xl mt-2 drop-shadow">Una lista curada de lugares con temas improbables e invisibles que puedes leer a tu ritmo...</p>
-      <div class="flex gap-3 mt-6">
-        <a href="#articulos" class="btn px-4 py-2 bg-blue-600 rounded text-white text-sm">Artículos</a>
-        <a href="#newsletter" class="btn px-4 py-2 bg-white text-black rounded text-sm">Newsletter</a>
+  <section class="relative px-0 sm:pl-[22px] will-reveal">
+    <div class="relative">
+      <img id="heroImg" src="./assets/cover-1.png" alt="Qué te interesa ver hoy"
+           class="w-full h-auto parallax" style="aspect-ratio: 16/9;">
+      <!-- Texto centrado: oculto en móvil si estorba; visible en md+ -->
+      <div class="absolute inset-0 hidden md:flex flex-col justify-center items-center text-center px-6">
+        <h2 class="text-white text-2xl md:text-3xl font-bold drop-shadow">¿qué te interesa ver hoy?</h2>
+        <p class="text-white text-sm max-w-xl mt-2 drop-shadow">Una lista curada de lugares con temas improbables e invisibles que puedes leer a tu ritmo...</p>
+        <div class="flex gap-3 mt-6">
+          <a href="#articulos" class="btn px-4 py-2 bg-blue-600 rounded text-white text-sm">Artículos</a>
+          <a href="#newsletter" class="btn px-4 py-2 bg-white text-black rounded text-sm">Newsletter</a>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Último LinkedIn + newsletter -->
-  <section class="bg-black text-white px-6 py-12 pl-[22px] will-reveal">
-    <div class="max-w-3xl mx-auto text-xl md:text-2xl space-y-6">
+  <section class="bg-black text-white px-4 sm:px-6 py-10 sm:py-16 will-reveal">
+    <div class="max-w-3xl mx-auto text-lg sm:text-xl md:text-2xl space-y-6">
       <p>esto es lo último que publiqué en LinkedIn:</p>
       <p>qué caraj*s con...</p>
       <p>¿te gustaría recibir un artículo semanal con las preguntas más raras y curiosas…?</p>
       <p class="text-red-700 text-sm uppercase">suscríbete al</p>
       <h3 id="newsletter" class="text-red-700 text-5xl font-black">newsletter</h3>
-      <form class="mt-4 grid grid-cols-1 sm:grid-cols-[1fr_auto] gap-3 max-w-xl">
-        <input type="email" placeholder="tu@email.com" class="px-4 py-3 rounded border border-zinc-700 bg-zinc-900 text-white placeholder-zinc-400" required>
+
+      <form class="mt-4 grid grid-cols-1 sm:grid-cols-[1fr_auto] gap-3 max-w-xl w-full">
+        <input type="email" placeholder="tu@email.com"
+               class="w-full px-4 py-3 rounded border border-zinc-700 bg-zinc-900 text-white placeholder-zinc-400" required>
         <button class="btn px-5 py-3 rounded bg-red-700 text-white font-semibold" type="submit">Suscribirme</button>
       </form>
       <p class="text-xs text-zinc-400">Al suscribirte aceptas recibir correos sobre nuevos artículos y recursos.</p>
     </div>
   </section>
 
+  <!-- ====== Scripts ====== -->
   <script>
-    // Entrada suave del título
+    // Entrada suave del título (fix: megaTitle)
     window.addEventListener('load', () => {
-      document.getElementById('title').classList.add('ready');
+      document.getElementById('megaTitle')?.classList.add('ready');
     });
 
     // Reveal on scroll
@@ -206,19 +195,21 @@ tailwind.config = {
     }, { rootMargin: '0px 0px -10% 0px', threshold: 0.15 });
     revealEls.forEach(el => io.observe(el));
 
-    // Parallax suave
+    // Parallax + sidebar gradient movement
     const heroImg = document.getElementById('heroImg');
+    const sidebar = document.getElementById('sidebar');
     let ticking = false;
     function onScroll() {
       if (!ticking) {
         requestAnimationFrame(() => {
-          const rect = heroImg.getBoundingClientRect();
-          if (rect.bottom > 0 && rect.top < innerHeight) {
-            const center = rect.top + rect.height/2 - innerHeight/2;
-            const offset = center * -0.06;
-            heroImg.style.setProperty('--y', offset.toFixed(1) + 'px');
+          if (heroImg){
+            const rect = heroImg.getBoundingClientRect();
+            if (rect.bottom > 0 && rect.top < innerHeight) {
+              const center = rect.top + rect.height/2 - innerHeight/2;
+              const offset = center * -0.06;
+              heroImg.style.setProperty('--y', offset.toFixed(1) + 'px');
+            }
           }
-          // Sidebar gradient movement
           const docH = Math.max(document.body.scrollHeight, document.documentElement.scrollHeight);
           const progress = Math.min(1, Math.max(0, scrollY / (docH - innerHeight)));
           sidebar.style.backgroundPosition = `50% ${progress * 100}%`;
@@ -231,101 +222,72 @@ tailwind.config = {
     document.addEventListener('scroll', onScroll, { passive: true });
 
     // Sidebar “alive” también con mouse
-    const sidebar = document.getElementById('sidebar');
     window.addEventListener('mousemove', (e) => {
       const yPct = (e.clientY / innerHeight) * 100;
       sidebar.style.setProperty('--glowY', `${yPct.toFixed(1)}%`);
     });
 
-    // Reduce motion
+    // Respeta reduce motion
     if (matchMedia('(prefers-reduced-motion: reduce)').matches) {
       document.removeEventListener('scroll', onScroll);
       sidebar.style.backgroundPosition = '50% 50%';
     }
   </script>
+
   <script>
-/* ====== Split a letras, animación letter-by-letter y reacción al cursor ====== */
-(function(){
-  const el = document.getElementById('megaTitle');
-  if (!el) return;
+  /* ====== Split a letras + interacción cursor ====== */
+  (function(){
+    const el = document.getElementById('megaTitle');
+    if (!el) return;
 
-  // 1) Separar en <span class="char"> por cada carácter (respeta espacios)
-  const text = el.textContent;
-  el.textContent = '';
-  const frag = document.createDocumentFragment();
-  [...text].forEach((ch, i) => {
-    const span = document.createElement('span');
-    span.className = 'char';
-    span.textContent = ch;
-    frag.appendChild(span);
-  });
-  el.appendChild(frag);
-
-  const chars = [...el.querySelectorAll('.char')];
-
-  // 2) Animación letter-by-letter (stagger)
-  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const baseDelay = 40; // ms entre letras
-  if (!reduce) {
-    chars.forEach((c, i) => {
-      setTimeout(() => c.classList.add('show'), i * baseDelay);
+    // Split en spans
+    const text = el.textContent;
+    el.textContent = '';
+    const frag = document.createDocumentFragment();
+    [...text].forEach(ch => {
+      const span = document.createElement('span');
+      span.className = 'char';
+      span.textContent = ch;
+      frag.appendChild(span);
     });
-  } else {
-    chars.forEach(c => c.classList.add('show'));
-  }
+    el.appendChild(frag);
+    const chars = [...el.querySelectorAll('.char')];
 
-  // 3) Interactividad con el mouse:
-  //    Cada letra rota y se desplaza ligeramente según la distancia al cursor
-  let mouseX = innerWidth/2, mouseY = innerHeight/2, ticking = false;
+    // Stagger
+    const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const baseDelay = 40;
+    if (!reduce) chars.forEach((c,i)=> setTimeout(()=> c.classList.add('show'), i*baseDelay));
+    else chars.forEach(c=> c.classList.add('show'));
 
-  function applyMouseEffect(){
-    const rectTitle = el.getBoundingClientRect();
-    const centerY = rectTitle.top + rectTitle.height/2;
-
-    chars.forEach((c) => {
-      const r = c.getBoundingClientRect();
-      const cx = r.left + r.width/2;
-      const cy = r.top + r.height/2;
-
-      // Distancia del cursor a cada letra
-      const dx = mouseX - cx;
-      const dy = mouseY - cy;
-
-      // Mapea a rotación/traslación suaves (ajusta factores si quieres más drama)
-      const dist = Math.hypot(dx, dy);
-      const maxTilt = 10;      // grados máx
-      const maxLift = 10;      // px máx
-      const influence = Math.max(0, 1 - dist / 600); // radio de influencia
-
-      const tilt = maxTilt * influence * (dx > 0 ? 1 : -1); // rota según lado
-      const lift = -maxLift * influence;                    // levanta un poco
-      const sway = 6 * influence * Math.sign(dx);           // desliza lateral
-
-      // además, inclina levemente respecto al centro vertical del título
-      const tiltY = ( (cy - centerY) / rectTitle.height ) * maxTilt * .6;
-
-      c.style.transform = `translate(${sway.toFixed(1)}px, ${lift.toFixed(1)}px) rotate(${(tilt+tiltY).toFixed(2)}deg)`;
-    });
-  }
-
-  function onMove(e){
-    mouseX = e.clientX;
-    mouseY = e.clientY;
-    if (!ticking){
-      requestAnimationFrame(() => { applyMouseEffect(); ticking = false; });
-      ticking = true;
+    // Interacción con mouse
+    let mouseX = innerWidth/2, mouseY = innerHeight/2, ticking = false;
+    function applyMouseEffect(){
+      const rectTitle = el.getBoundingClientRect();
+      const centerY = rectTitle.top + rectTitle.height/2;
+      chars.forEach((c) => {
+        const r = c.getBoundingClientRect();
+        const cx = r.left + r.width/2;
+        const cy = r.top + r.height/2;
+        const dx = mouseX - cx;
+        const dy = mouseY - cy;
+        const dist = Math.hypot(dx, dy);
+        const maxTilt = 10, maxLift = 10;
+        const influence = Math.max(0, 1 - dist / 600);
+        const tilt = maxTilt * influence * (dx > 0 ? 1 : -1);
+        const lift = -maxLift * influence;
+        const sway = 6 * influence * Math.sign(dx);
+        const tiltY = ((cy - centerY) / rectTitle.height) * maxTilt * .6;
+        c.style.transform = `translate(${sway.toFixed(1)}px, ${lift.toFixed(1)}px) rotate(${(tilt+tiltY).toFixed(2)}deg)`;
+      });
     }
-  }
-  window.addEventListener('mousemove', onMove, { passive:true });
-
-  // 4) Recalcular al hacer resize (importante en móvil/desktop)
-  window.addEventListener('resize', () => { applyMouseEffect(); });
-
-  // 5) Por si el título entra tarde al viewport, aplica una primera pasada
-  applyMouseEffect();
-})();
-</script>
-
+    function onMove(e){
+      mouseX = e.clientX; mouseY = e.clientY;
+      if (!ticking){ requestAnimationFrame(()=>{ applyMouseEffect(); ticking=false; }); ticking = true; }
+    }
+    window.addEventListener('mousemove', onMove, { passive:true });
+    window.addEventListener('resize', applyMouseEffect);
+    applyMouseEffect();
+  })();
+  </script>
 </body>
 </html>
-
