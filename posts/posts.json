@@ -1,0 +1,16 @@
+[
+  {
+    "slug": "primer-post",
+    "title": "Cómo diseño en público mis proyectos creativos",
+    "date": "2025-09-01",
+    "excerpt": "Proceso, errores y aprendizajes construyendo en público.",
+    "cover": "./assets/cover-1.png"
+  },
+  {
+    "slug": "segundo-post",
+    "title": "AI como copiloto creativo: flujo real",
+    "date": "2025-09-05",
+    "excerpt": "Herramientas y prompts que sí uso en proyectos reales.",
+    "cover": "./assets/cover-2.png"
+  }
+]

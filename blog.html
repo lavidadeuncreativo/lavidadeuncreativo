@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Blog — La Vida de un Creativo</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body class="bg-white text-zinc-900">
+  <main class="max-w-3xl mx-auto px-4 py-10">
+    <a href="./" class="text-sm underline">&larr; Volver</a>
+    <article id="post" class="prose prose-zinc max-w-none mt-6"></article>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script>
+    async function renderPost() {
+      const params = new URLSearchParams(location.search);
+      const slug = params.get('slug');
+      const postEl = document.getElementById('post');
+      if (!slug) { postEl.innerHTML = '<p>Artículo no encontrado.</p>'; return; }
+
+      try {
+        const res = await fetch('./posts/' + slug + '.md');
+        const md = await res.text();
+        postEl.innerHTML = marked.parse(md);
+        if (window.instgrm) window.instgrm.Embeds.process();
+      } catch (e) {
+        postEl.innerHTML = '<p>No se pudo cargar este artículo.</p>';
+      }
+    }
+    renderPost();
+  </script>
+  <script async src="https://www.tiktok.com/embed.js"></script>
+  <script async src="//www.instagram.com/embed.js"></script>
+</body>
+</html>

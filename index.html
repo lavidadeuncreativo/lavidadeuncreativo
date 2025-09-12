@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>La Vida de un Creativo — by Isra</title>
+  <meta name="description" content="Artículos, videos y recursos sobre creatividad, AI y cultura digital." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body class="bg-white text-zinc-900 font-[Inter]">
+  <header class="sticky top-0 z-50 bg-white/80 backdrop-blur border-b">
+    <nav class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+      <a href="./" class="text-xl font-extrabold">La Vida de un Creativo</a>
+      <ul class="flex gap-5 text-sm">
+        <li><a href="#articulos" class="hover:underline">Artículos</a></li>
+        <li><a href="#videos" class="hover:underline">Videos</a></li>
+        <li><a href="#social" class="hover:underline">Social</a></li>
+        <li><a href="#tienda" class="hover:underline">Tienda</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="max-w-6xl mx-auto px-4 py-16">
+    <div class="grid md:grid-cols-2 gap-10 items-center">
+      <div>
+        <h1 class="text-4xl md:text-6xl font-extrabold leading-tight">
+          Tu pedazo de mundo creativo,<br>
+          <span class="text-zinc-500">construido en público.</span>
+        </h1>
+        <p class="mt-5 text-lg text-zinc-600">
+          Ideas, procesos, experimentos y herramientas para crear mejor.
+          Artículos, videos, newsletter y recursos descargables.
+        </p>
+        <div class="mt-6 flex gap-3">
+          <a href="#articulos" class="px-5 py-3 rounded-2xl border hover:bg-zinc-50">Últimos artículos</a>
+          <a href="#tienda" class="px-5 py-3 rounded-2xl bg-black text-white hover:opacity-90">Tienda</a>
+        </div>
+      </div>
+      <div class="aspect-video rounded-2xl border overflow-hidden">
+        <iframe class="w-full h-full" src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+          title="Trailer LVC" allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
+
+  <section id="articulos" class="max-w-6xl mx-auto px-4 py-12 border-t">
+    <div class="flex items-baseline justify-between mb-6">
+      <h2 class="text-2xl font-bold">Últimos artículos</h2>
+      <a href="./blog.html" class="text-sm underline">Ver todos</a>
+    </div>
+    <div id="posts-grid" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    </div>
+  </section>
+
+  <section id="videos" class="max-w-6xl mx-auto px-4 py-12 border-t">
+    <h2 class="text-2xl font-bold mb-6">Videos</h2>
+    <div class="grid md:grid-cols-2 gap-6">
+      <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@scout2015/video/6718335390845095173"
+        data-video-id="6718335390845095173" style="max-width: 605px;min-width: 325px;">
+        <section> <a target="_blank" title="@scout2015" href="https://www.tiktok.com/@scout2015">@scout2015</a> </section>
+      </blockquote>
+      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/p/Cx1abcXYZ/" data-instgrm-version="14" style="background:#FFF;border:0; margin:0 auto; max-width:540px; width:100%;"></blockquote>
+    </div>
+  </section>
+
+  <section id="social" class="max-w-6xl mx-auto px-4 py-12 border-t">
+    <div class="grid md:grid-cols-2 gap-10">
+      <div>
+        <h2 class="text-2xl font-bold">LinkedIn destacado</h2>
+        <p class="text-zinc-600 mb-4">Publicaciones sobre AI, creatividad y cultura digital.</p>
+        <iframe src="https://www.linkedin.com/embed/feed/update/urn:li:share:7051521281234567890"
+          height="400" width="100%" frameborder="0" allowfullscreen="" title="Publicación de LinkedIn"></iframe>
+      </div>
+      <div>
+        <h2 class="text-2xl font-bold">Newsletter</h2>
+        <p class="text-zinc-600 mb-4">Suscríbete para recibir los mejores hallazgos semanales.</p>
+        <iframe src="https://substack.com/embed" width="100%" height="320" style="border:1px solid #eee; background:white;" frameborder="0"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <section id="tienda" class="max-w-6xl mx-auto px-4 py-12 border-t">
+    <h2 class="text-2xl font-bold mb-6">Tienda (guías y recursos)</h2>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <article class="border rounded-2xl p-5">
+        <h3 class="font-semibold text-lg">Guía: Prompts Pro para Creativos</h3>
+        <p class="text-sm text-zinc-600 mt-2">Plantillas y frameworks listos para usar en proyectos reales.</p>
+        <a class="mt-4 inline-block px-4 py-2 rounded-xl bg-black text-white" href="https://gumroad.com/l/tuproducto" target="_blank" rel="noopener">Comprar en Gumroad</a>
+      </article>
+    </div>
+  </section>
+
+  <footer class="mt-16 py-10 border-t">
+    <div class="max-w-6xl mx-auto px-4 text-sm text-zinc-500">
+      © <span id="year"></span> La Vida de un Creativo — Hecho con GitHub Pages
+    </div>
+  </footer>
+
+  <script async src="https://www.tiktok.com/embed.js"></script>
+  <script async src="//www.instagram.com/embed.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>

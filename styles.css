@@ -1,0 +1,3 @@
+:root { --radius: 1.25rem; }
+img, iframe, video { display:block; width:100%; height:auto; }
+.border { border-color: #e5e7eb; }
