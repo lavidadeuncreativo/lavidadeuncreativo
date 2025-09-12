@@ -75,6 +75,43 @@ tailwind.config = {
       .sidebar::after { display:none; }
     }
   </style>
+  <style>
+  /* Tamaño fluido ENORME para el título */
+  .title-giant{
+    /* clamp(min, vw-based, max) -> ajusta max si lo quieres aún más grande */
+    font-size: clamp(64px, 14vw, 220px);
+    line-height: .85;
+    display: inline-block;
+    position: relative;
+    white-space: nowrap;
+  }
+
+  /* Cada letra */
+  .title-giant .char{
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(12px) rotate(0deg);
+    transition: transform .5s cubic-bezier(.22,1,.36,1), opacity .5s cubic-bezier(.22,1,.36,1);
+    will-change: transform, opacity;
+  }
+
+  /* Estado visible (lo aplica JS con stagger) */
+  .title-giant .char.show{
+    opacity: 1;
+    transform: translateY(0) rotate(0deg);
+  }
+
+  /* Hover suave de cada letra (opcional) */
+  .title-giant .char:hover{
+    transform: translateY(-2px) rotate(-2deg) scale(1.02);
+  }
+
+  /* Reduce motion: muestra todo sin animar */
+  @media (prefers-reduced-motion: reduce){
+    .title-giant .char{ opacity:1; transform:none !important; transition:none !important; }
+  }
+</style>
+
 </head>
 <body class="bg-white text-black">
 
