@@ -1,3 +1,11 @@
 :root { --radius: 1.25rem; }
 img, iframe, video { display:block; width:100%; height:auto; }
 .border { border-color: #e5e7eb; }
+
+@font-face {
+  font-family: 'Zarathustra';
+  src: url('./assets/fonts/Zarathustra-v01.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
