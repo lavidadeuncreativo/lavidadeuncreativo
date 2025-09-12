@@ -9,3 +9,59 @@ img, iframe, video { display:block; width:100%; height:auto; }
   font-style: normal;
   font-display: swap;
 }
+
+<!-- Font ZTBros --!>
+
+/* Extra Light */
+@font-face {
+  font-family: 'ZTBros';
+  src: url('./assets/fonts/ZTBrosOskon90s-ExtraLight.otf') format('opentype');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Extra Light Italic */
+@font-face {
+  font-family: 'ZTBros';
+  src: url('./assets/fonts/ZTBrosOskon90s-ExtLtIta.otf') format('opentype');
+  font-weight: 200;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Light */
+@font-face {
+  font-family: 'ZTBros';
+  src: url('./assets/fonts/ZTBrosOskon90s-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Light Italic */
+@font-face {
+  font-family: 'ZTBros';
+  src: url('./assets/fonts/ZTBrosOskon90s-LightItalic.otf') format('opentype');
+  font-weight: 300;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Regular */
+@font-face {
+  font-family: 'ZTBros';
+  src: url('./assets/fonts/ZTBrosOskon90s-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Italic (si la tienes) */
+@font-face {
+  font-family: 'ZTBros';
+  src: url('./assets/fonts/ZTBrosOskon90s-Italic.otf') format('opentype');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
