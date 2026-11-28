@@ -1,7 +1,7 @@
 /* Guía Kindle: botón "Copiar" en cada bloque de comandos */
 (function () {
   "use strict";
-  var blocks = document.querySelectorAll(".prose pre");
+  var blocks = document.querySelectorAll(".prose pre:not(.kw-pre)");
   Array.prototype.forEach.call(blocks, function (pre) {
     var btn = document.createElement("button");
     btn.type = "button";

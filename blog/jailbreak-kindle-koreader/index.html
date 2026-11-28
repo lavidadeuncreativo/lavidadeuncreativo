@@ -32,7 +32,36 @@
 .thread p{font-size:16.5px;line-height:1.5;margin-top:10px}
 .thread img{width:100%;border-radius:16px;border:1px solid var(--line);margin-top:12px;display:block}
 .thread .pill{margin-top:14px}
-@media (max-width:760px){.prose pre{font-size:13px}.prose table{font-size:14.5px}}
+.kw-wrap{border:1.5px solid var(--ink);border-radius:26px;background:#fff;padding:22px 20px;box-shadow:6px 7px 0 var(--ink)}
+.kw-wrap>h2{margin-top:0!important}
+.kw-form fieldset{border:0;padding:0;margin:0 0 18px}
+.kw-form legend{font-weight:700;font-size:17px;margin-bottom:8px}
+.kw-row{display:flex;flex-wrap:wrap;gap:8px}
+.kw-opt{display:inline-flex;align-items:center;gap:8px;border:1.5px solid var(--ink);border-radius:999px;padding:8px 14px;font-size:15px;font-weight:600;cursor:pointer;background:#fff}
+.kw-opt:has(input:checked){background:var(--ink);color:#fff}
+.kw-opt input{accent-color:var(--accent)}
+.kw-help{font-size:14.5px;color:var(--muted);margin:0 0 8px;line-height:1.45}
+.kw-in{width:100%;max-width:340px;font:inherit;font-size:17px;padding:10px 14px;border:1.5px solid var(--ink);border-radius:14px;background:#fff}
+.kw-alt{margin-top:10px;font-size:15px}
+.kw-alt summary{cursor:pointer;color:var(--muted)}
+.kw-alt select{margin-top:8px}
+.kw-status{font-size:14.5px;font-weight:600;margin:6px 0 0;min-height:1em}
+.kw-status.ok{color:#1f7a4d}.kw-status.bad{color:#b3261e}
+.kw-go{font-size:16px;padding:12px 20px;cursor:pointer}
+.kw-out:focus{outline:none}
+.kw-card{margin-top:24px;border-radius:20px;padding:18px 18px;background:#f1eee8}
+.kw-card.bad{background:#ffe9e7}
+.kw-card h3{font-family:var(--serif);font-weight:400;font-size:30px;line-height:1.05;margin:4px 0 8px}
+.kw-kicker{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+.kw-note{margin-top:10px;font-size:15.5px;background:#fff6a8;border-radius:12px;padding:10px 12px}
+.kw-step{margin-top:22px;padding-top:18px;border-top:1px solid var(--line)}
+.kw-step h4{display:flex;align-items:center;gap:10px;font-size:20px;line-height:1.2;margin-bottom:10px}
+.kw-step h4 span{flex:none;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:var(--ink);color:#fff;font-size:15px}
+.kw-step>*+*{margin-top:.8em}
+.kw-step li+li{margin-top:.45em}
+.kw-src{margin-top:22px;font-size:13.5px;color:var(--muted)}
+.os-tag{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;border:1.5px solid var(--ink);border-radius:999px;padding:2px 10px;margin-right:6px;vertical-align:2px}
+@media (max-width:760px){.kw-wrap{padding:18px 14px}.prose pre{font-size:13px}.prose table{font-size:14.5px}}
 </style></head>
 <body><script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Cómo hacerle jailbreak a tu Kindle y dejarlo como el de mi post (guía 2026)","description":"Convierte tu Kindle con KOReader: inicio con rachas, biblioteca ordenada, protector propio e IA gratis. Guía fácil, con los errores comunes y cómo resolverlos.","datePublished":"2026-11-27","dateModified":"2026-11-27","inLanguage":"es-MX","author":{"@type":"Person","name":"Isra","url":"https://lavidadeuncreativo.com"},"publisher":{"@type":"Person","name":"lavidadeuncreativo"},"mainEntityOfPage":"https://lavidadeuncreativo.com/blog/jailbreak-kindle-koreader","image":"https://lavidadeuncreativo.com/media/2026-11/kindle-koreader-inicio-1984.jpg","keywords":"jailbreak kindle, koreader, koreader español, personalizar kindle, kindle con IA"}</script><script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"¿Qué es hacerle jailbreak a un Kindle?","acceptedAnswer":{"@type":"Answer","text":"Es quitarle el bloqueo de Amazon para poder instalar programas propios, como KOReader. Tu Kindle sigue funcionando igual, solo que ahora también puede correr cosas que Amazon no incluye."}},{"@type":"Question","name":"¿Mi Kindle es compatible?","acceptedAnswer":{"@type":"Answer","text":"Depende de tu modelo y tu versión de software. Revísalo en el asistente de kindlemodding.org: te dice si hay método para tu caso y cuál."}},{"@type":"Question","name":"¿Pierdo mis libros de Amazon?","acceptedAnswer":{"@type":"Answer","text":"No. Siguen ahí y los lees en la interfaz normal del Kindle. KOReader no los abre porque traen DRM, pero puedes cambiar entre los dos cuando quieras."}},{"@type":"Question","name":"¿Puedo seguir comprando en Amazon?","acceptedAnswer":{"@type":"Answer","text":"Sí. Lo que compras se lee como siempre en el Kindle normal."}},{"@type":"Question","name":"¿Es legal hacerle jailbreak a un Kindle?","acceptedAnswer":{"@type":"Answer","text":"Modificar tu propio dispositivo para uso personal es algo que mucha gente hace, pero no soy abogado y las reglas cambian por país. Lo que sí está mal es usarlo para piratear libros. Puede afectar tu garantía."}},{"@type":"Question","name":"¿Puedo romper mi Kindle?","acceptedAnswer":{"@type":"Answer","text":"El riesgo es bajo si sigues la guía exacta de tu modelo, pero no es cero. El error típico es usar un método que no corresponde a tu versión."}},{"@type":"Question","name":"¿Qué pasa si el Kindle se actualiza solo?","acceptedAnswer":{"@type":"Answer","text":"Antes del jailbreak, puedes perder la oportunidad de hacerlo; por eso el modo avión y llenar la memoria. Después, los jailbreaks actuales bloquean las actualizaciones automáticas."}},{"@type":"Question","name":"¿Necesito Mac?","acceptedAnswer":{"@type":"Answer","text":"No. Funciona con Windows o Linux. Los pasos también se pueden hacer arrastrando archivos."}},{"@type":"Question","name":"¿Qué formatos lee KOReader?","acceptedAnswer":{"@type":"Answer","text":"EPUB, PDF, MOBI y AZW3 sin DRM, cómics (CBZ), entre otros."}},{"@type":"Question","name":"¿La IA en el Kindle cuesta?","acceptedAnswer":{"@type":"Answer","text":"Con Gemini es gratis, con límites diarios que para leer sobran. Con Claude u OpenAI por API pagas por uso."}},{"@type":"Question","name":"¿Gasta más batería?","acceptedAnswer":{"@type":"Answer","text":"Lo que más gasta es el WiFi. Apágalo cuando no lo uses y la batería te dura semanas, como siempre."}}]}</script><article>
 <header class="post-head"><div class="topbar"><div class="group"><a class="pill" href="/blog">← Blog</a><a class="pill" href="/">Inicio</a></div><div class="meta"><span class="pill">27 de noviembre de 2026</span><span class="pill">12 min de lectura</span></div></div>
@@ -48,6 +77,7 @@
 <p>Gracias <a href="https://www.threads.com/@ro.aguilars" target="_blank" rel="noopener">@ro.aguilars</a>, buen pedo por compartirlo.</p>
 <a class="pill dark" href="https://www.threads.com/share/DlRfFxwti" target="_blank" rel="noopener">Ver el post en Threads ↗</a></div>
 
+<p><strong>¿Tienes Windows o un Kindle distinto al mío?</strong> Usa el <a href="#asistente">asistente</a>: te arma tu guía exacta. Y la guía completa de abajo trae instrucciones para Mac y Windows.</p>
 <p>Al final vas a tener un Kindle que se ve y funciona así:</p>
 <ul>
 <li>Una pantalla de inicio con el libro que estás leyendo, metas diarias y racha de lectura.</li>
@@ -57,6 +87,7 @@
 </ul>
 
 <div class="toc"><strong>En esta guía</strong><ol>
+<li><a href="#asistente">Asistente: tu paso a paso</a></li>
 <li><a href="#rapida">La respuesta rápida</a></li>
 <li><a href="#antes">Antes de empezar</a></li>
 <li><a href="#paso-1">Paso 1: qué jailbreak te toca</a></li>
@@ -70,6 +101,10 @@
 <li><a href="#errores">Lo que me salió mal</a></li>
 <li><a href="#faq">Preguntas frecuentes</a></li>
 </ol></div>
+
+<div class="kw-wrap" id="asistente"><h2>Tu paso a paso en 1 minuto</h2>
+<p>Contesta 5 preguntas y te armo la guía exacta para tu Kindle y tu computadora (Mac, Windows o Linux): qué jailbreak te toca y cada paso con los comandos ya listos.</p>
+<div id="kw"><p class="callout soft">El asistente necesita JavaScript. Si no carga, sigue la guía completa de abajo.</p></div></div>
 
 <h2 id="rapida">La respuesta rápida</h2>
 <p>Sí se puede, es gratis y a mí me tomó una tarde. Le haces jailbreak al Kindle, instalas KOReader (un lector gratuito y de código abierto) y le agregas plugins para la pantalla de inicio, la biblioteca y la IA.</p>
@@ -95,6 +130,7 @@
 <li>Anota tu modelo. Si no aparece el nombre, los primeros caracteres del número de serie lo delatan (el mío empieza con G090VB).</li>
 <li>Respaldo: conecta el Kindle a la compu y copia la carpeta <code>documents</code> a tu escritorio.</li>
 </ul>
+<p><strong>Cómo ver los archivos del Kindle en tu compu:</strong> en Windows aparece en el Explorador de archivos, en Este equipo. En Mac aparece en Finder como Kindle. Ojo: los Kindle de 2021 en adelante (Paperwhite 5 y 6, Kindle Básico 2022 y 2024, Scribe, Colorsoft) se conectan de otra forma (MTP) y <strong>en Mac no salen en Finder</strong>: instala <a href="https://openmtp.ganeshrvel.com" target="_blank" rel="noopener">OpenMTP</a> (gratis) y desde ahí arrastras archivos. En Windows sí aparecen, como dispositivo.</p>
 
 <h2 id="paso-1">Paso 1: averigua qué jailbreak te toca</h2>
 <p>No hay un solo jailbreak para todos. Depende de tu modelo y tu versión de software, y cambia cada pocos meses porque Amazon parcha unos y la comunidad saca otros. Por eso no te voy a decir "haz este": te voy a decir dónde averiguarlo.</p>
@@ -109,7 +145,7 @@
 <h2 id="paso-2">Paso 2: bloquea las actualizaciones llenando la memoria</h2>
 <p>Algunos métodos (como SpiderCat) necesitan WiFi, y con WiFi el Kindle se puede actualizar solo. El truco: llenar la memoria para que no tenga espacio donde bajar la actualización. Si tu método no usa WiFi, revisa en su guía si igual te lo piden.</p>
 <p>Usé el script <a href="https://github.com/bastianmarin/Kindle-Filler-Disk" target="_blank" rel="noopener">Kindle Filler Disk</a>. Tiene versión para Mac/Linux (<code>Filler.sh</code>) y para Windows (<code>Filler.ps1</code>).</p>
-<p>En Mac: conecta el Kindle, abre Terminal y pega esto:</p>
+<p><span class="os-tag">Mac</span>Conecta el Kindle, abre Terminal y pega esto:</p>
 <pre><code>cd /Volumes/Kindle
 curl -fsSLO https://raw.githubusercontent.com/bastianmarin/Kindle-Filler-Disk/main/Scripts/Filler.sh
 chmod +x Filler.sh
@@ -123,6 +159,11 @@ chmod +x Filler.sh
 <li>Espera a que llegue al 100% sin desconectar nada.</li>
 </ol>
 <figure><img src="/media/2026-11/kindle-terminal-llenar-memoria.jpg" alt="Terminal de Mac con el script Kindle Filler Disk terminado: Disk fill complete, 50 MB libres" width="1162" height="761"><figcaption>Así se ve cuando termina: 50 MB libres y "Disk fill complete!"</figcaption></figure>
+<p><span class="os-tag">Windows</span>Conecta el Kindle, abre PowerShell (menú Inicio, escribe PowerShell), pega esto y dale Enter. Funciona también con los Kindle de 2021 en adelante:</p>
+<pre><code>irm https://raw.githubusercontent.com/bastianmarin/Kindle-Filler-Disk/main/Scripts/Filler.ps1 | iex</code></pre>
+<p>Si te pregunta el dispositivo, elige tu Kindle, y contesta igual: <code>1</code>, <code>2</code> y <code>y</code>.</p>
+<p><span class="os-tag">Linux</span>En la terminal: <code>curl -fsSL https://raw.githubusercontent.com/bastianmarin/Kindle-Filler-Disk/main/Scripts/Filler.sh | bash</code></p>
+<p><span class="os-tag">Mac + Kindle 2021 o más nuevo</span>El script no funciona con estos modelos en Mac. Usa <a href="https://github.com/jannikac/mtp-filler" target="_blank" rel="noopener">mtp-filler</a>, una app con botones que hace lo mismo: eliges tu Kindle y dejas unos 50 MB libres.</p>
 <p>Al final, en Información del dispositivo debes ver entre 50 y 90 MB libres. No te preocupes: esos GB los recuperas en el paso 3.</p>
 
 <h2 id="paso-3">Paso 3: el jailbreak</h2>
@@ -137,8 +178,9 @@ chmod +x Filler.sh
 </ol>
 <p>La primera vez no pasó nada: el WiFi no estaba bien conectado. Lo revisé, lo abrí otra vez y arrancó.</p>
 <p>Señal de que funcionó: todo se ve igual que antes, pero en tu biblioteca aparece un elemento que dice JAILBROKEN. Así es, el cambio visible viene en el paso 4.</p>
-<h3>Limpieza (en Mac)</h3>
-<p>Conecta el Kindle y pega:</p>
+<h3>Limpieza</h3>
+<p><span class="os-tag">Windows</span>Abre el Kindle en el Explorador y borra la carpeta <code>fill_disk</code>, el archivo <code>spidercat.azw3</code> (dentro de <code>documents</code>) y cualquier archivo <code>update...bin</code> de la raíz.</p>
+<p><span class="os-tag">Mac</span>Conecta el Kindle y pega en Terminal (o arrástralos a la papelera y vacíala):</p>
 <pre><code>cd /Volumes/Kindle
 rm -f Filler.sh documents/spidercat.azw3
 rm -rf fill_disk
@@ -159,7 +201,8 @@ cd ~ &amp;&amp; diskutil eject /Volumes/Kindle</code></pre>
 
 <h2 id="paso-5">Paso 5: la pantalla de inicio con rachas y metas (SimpleUI)</h2>
 <p>Esta es la parte que se ve en mi foto. Es el plugin <a href="https://github.com/doctorhetfield-cmd/simpleui.koplugin" target="_blank" rel="noopener">SimpleUI</a>: inicio con lo que estás leyendo, metas, racha, estadísticas y una barra de navegación abajo.</p>
-<p>Cierra KOReader (arriba > menú ☰ > Salir), conecta el Kindle y pega en Terminal:</p>
+<p>Cierra KOReader (arriba &gt; menú ☰ &gt; Salir) y conecta el Kindle.</p>
+<p><span class="os-tag">Mac</span>Pega en Terminal:</p>
 <pre><code>cd ~/Downloads
 curl -fL -o simpleui.zip https://github.com/doctorhetfield-cmd/simpleui.koplugin/releases/latest/download/simpleui.koplugin.zip
 rm -rf simpleui_tmp &amp;&amp; unzip -o -q simpleui.zip -d simpleui_tmp
@@ -167,7 +210,8 @@ d=$(dirname "$(find simpleui_tmp -maxdepth 3 -name main.lua | head -1)")
 cp -R "$d" /Volumes/Kindle/koreader/plugins/simpleui.koplugin
 ls /Volumes/Kindle/koreader/plugins/simpleui.koplugin | head
 cd ~ &amp;&amp; diskutil eject /Volumes/Kindle</code></pre>
-<p>Si te sale <code>main.lua</code> en la lista, quedó. Sin Terminal también se puede: descarga <code>simpleui.koplugin.zip</code> de la página de releases, descomprímelo y arrastra la carpeta <code>simpleui.koplugin</code> a <code>koreader/plugins</code> del Kindle.</p>
+<p>Si te sale <code>main.lua</code> en la lista, quedó.</p>
+<p><span class="os-tag">Windows</span>(o Mac sin Terminal): descarga <code>simpleui.koplugin.zip</code> desde la sección Assets de la <a href="https://github.com/doctorhetfield-cmd/simpleui.koplugin/releases/latest" target="_blank" rel="noopener">página de releases</a>. Clic derecho &gt; Extraer todo, y copia la carpeta <code>simpleui.koplugin</code> dentro de <code>koreader/plugins</code> del Kindle. Revisa que adentro esté <code>main.lua</code> directo, sin otra carpeta en medio.</p>
 <p>Abre KOReader, elige un diseño en la bienvenida y configúralo desde Ajustes en la barra de abajo:</p>
 <ul class="check">
 <li>Activa los módulos Leyendo actualmente, Objetivos de lectura y Racha.</li>
@@ -179,7 +223,8 @@ cd ~ &amp;&amp; diskutil eject /Volumes/Kindle</code></pre>
 <p>Primero lo importante: tus compras de Amazon no aparecen en KOReader porque traen candado (DRM). Esas se siguen leyendo en el Kindle normal: en KOReader toca arriba > ☰ > Salir, y vuelves a la interfaz de siempre. KOReader abre PDF, EPUB y otros archivos sin candado.</p>
 <p>A mí la biblioteca me salía vacía o llena de cosas raras (el lanzador de KOReader, el aviso JAILBROKEN, el diccionario). Y los PDF que mandé con Send to Kindle estaban escondidos en <code>documents/Downloads/Items01</code> con nombres feos tipo <code>-cdeKey_4B56DC40...</code>.</p>
 <figure class="shot"><img src="/media/2026-11/kindle-biblioteca-antes.jpg" alt="Biblioteca de KOReader desordenada: carpeta dictionaries vacía, Downloads, aviso JAILBROKEN y el lanzador de KOReader" width="900" height="1600"><figcaption>Antes: la biblioteca con todo revuelto.</figcaption></figure>
-<p>Lo resolví juntando todo en una carpeta <code>Libros</code> y diciendo a KOReader que esa es su biblioteca. Con KOReader cerrado y el Kindle conectado, pega en Terminal:</p>
+<p>Lo resolví juntando todo en una carpeta <code>Libros</code> y diciendo a KOReader que esa es su biblioteca. Con KOReader cerrado y el Kindle conectado:</p>
+<p><span class="os-tag">Mac</span>Pega en Terminal:</p>
 <pre><code>cd /Volumes/Kindle/documents &amp;&amp; mkdir -p Libros
 find . -path ./Libros -prune -o -type f \( -iname "*.pdf" -o -iname "*.epub" \) ! -name "._*" -print | while IFS= read -r f; do
   b=$(basename "$f"); n="${b%%-cdeKey_*}"; [ "$n" != "$b" ] &amp;&amp; n="$n.${b##*.}"
@@ -187,6 +232,17 @@ find . -path ./Libros -prune -o -type f \( -iname "*.pdf" -o -iname "*.epub" \) 
 done
 ls Libros
 cd ~ &amp;&amp; diskutil eject /Volumes/Kindle</code></pre>
+<p><span class="os-tag">Windows</span>Pega en PowerShell:</p>
+<pre><code>$k = (Get-Volume | Where-Object FileSystemLabel -eq 'Kindle').DriveLetter
+Set-Location "$($k):\documents"
+New-Item -ItemType Directory -Force -Path Libros | Out-Null
+Get-ChildItem -Recurse -File | Where-Object { $_.Extension -match '^\.(pdf|epub)$' -and $_.FullName -notmatch '\\Libros\\' -and $_.Name -notlike '._*' } | ForEach-Object {
+  $n = $_.Name -replace '-cdeKey_.*(\.[^.]+)$', '$1'
+  $d = Join-Path "$($k):\documents\Libros" $n
+  if (-not (Test-Path -LiteralPath $d)) { Move-Item -LiteralPath $_.FullName -Destination $d }
+}
+Get-ChildItem Libros</code></pre>
+<p><span class="os-tag">Kindle 2021 o más nuevo</span>Esos comandos no lo ven. Hazlo a mano: crea la carpeta <code>Libros</code> dentro de <code>documents</code> y arrastra tus PDF y EPUB (con OpenMTP en Mac, con el Explorador en Windows).</p>
 <p>Eso junta todos tus PDF y EPUB en <code>Libros</code> y les quita el código feo de Amazon. No toca tus compras ni los archivos del jailbreak.</p>
 <p>Luego en el Kindle:</p>
 <ol>
@@ -270,7 +326,7 @@ cd ~ &amp;&amp; diskutil eject /Volumes/Kindle</code></pre>
 <h3>¿Qué pasa si se actualiza solo?</h3>
 <p>Antes del jailbreak, puedes perder la oportunidad de hacerlo; por eso el modo avión y llenar la memoria. Después, los jailbreaks actuales bloquean las actualizaciones automáticas.</p>
 <h3>¿Necesito Mac?</h3>
-<p>No. Funciona con Windows o Linux. Yo lo hice en Mac, por eso los comandos son de Terminal, pero los pasos se pueden hacer arrastrando archivos.</p>
+<p>No. Funciona con Windows, Mac o Linux. La guía trae los comandos para cada uno y el <a href="#asistente">asistente</a> te da los tuyos.</p>
 <h3>¿Qué formatos lee KOReader?</h3>
 <p>EPUB, PDF, MOBI y AZW3 sin DRM, cómics (CBZ), entre otros. Los PDF se leen mejor con el recorte automático de márgenes.</p>
 <h3>¿Se vuelve un iPad?</h3>
@@ -296,4 +352,4 @@ cd ~ &amp;&amp; diskutil eject /Volumes/Kindle</code></pre>
 <div class="share"><button class="pill dark" data-copy>Copiar enlace</button><a class="pill" data-share="threads" data-title="Le hice jailbreak a mi Kindle. Así lo puedes hacer tú." href="https://www.threads.com/intent/post?text=Le%20hice%20jailbreak%20a%20mi%20Kindle.%20As%C3%AD%20lo%20puedes%20hacer%20t%C3%BA.%20https%3A%2F%2Flavidadeuncreativo.com%2Fblog%2Fjailbreak-kindle-koreader" target="_blank" rel="noopener">Compartir en Threads</a><a class="pill" data-share="linkedin" href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Flavidadeuncreativo.com%2Fblog%2Fjailbreak-kindle-koreader" target="_blank" rel="noopener">Compartir en LinkedIn</a></div></footer>
 </article>
 <main class="blog" style="padding-top:0"><footer class="foot"><span class="big">lavidadeuncreativo</span><div class="group"><a class="pill" href="/">Inicio</a><a class="pill" href="/blog">Todo el blog</a></div></footer></main>
-<script src="/assets/site.js" defer></script><script src="/assets/guia-kindle.js" defer></script></body></html>
+<script src="/assets/site.js" defer></script><script src="/assets/guia-kindle.js" defer></script><script src="/assets/kindle-data.js" defer></script><script src="/assets/guia-kindle-wizard.js" defer></script></body></html>
